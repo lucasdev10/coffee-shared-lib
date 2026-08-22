@@ -1,12 +1,14 @@
 ﻿/*
  * Directives barrel export
- * 
- * Directives will be exported here in task 1.3:
+ *
+ * Public exports for all shared directives:
  * - ClickOutsideDirective
  * - LazyLoadDirective
  * - DebounceClickDirective
  * - AutoFocusDirective
  */
 
-// Exports will be added in task 1.3
-export {};
+export { AutoFocusDirective } from './auto-focus.directive';
+export { ClickOutsideDirective } from './click-outside.directive';
+export { DebounceClickDirective } from './debounce-click.directive';
+export { LazyLoadDirective } from './lazy-load.directive';
