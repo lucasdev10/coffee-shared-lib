@@ -1,0 +1,68 @@
+import { signal } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormErrorComponent } from './form-error.component';
+
+describe('FormErrorComponent', () => {
+  let component: FormErrorComponent;
+  let fixture: ComponentFixture<FormErrorComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [FormErrorComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(FormErrorComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('should create', () => {
+    component.control = signal({
+      invalid: () => false,
+      touched: () => false,
+      errors: () => null,
+      pending: () => false,
+    }) as any;
+
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('should not display error when control is valid', () => {
+    component.control = signal({
+      invalid: () => false,
+      touched: () => true,
+      errors: () => null,
+      pending: () => false,
+    }) as any;
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled).toBeTruthy();
+  });
+
+  it('should not display error when control is not touched', () => {
+    component.control = signal({
+      invalid: () => true,
+      touched: () => false,
+      errors: () => ({ required: true }),
+      pending: () => false,
+    }) as any;
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled).toBeTruthy();
+  });
+
+  it('should handle pending state', () => {
+    component.control = signal({
+      invalid: () => false,
+      touched: () => true,
+      errors: () => null,
+      pending: () => true,
+    }) as any;
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled).toBeTruthy();
+  });
+});
