@@ -1,11 +1,7 @@
 ﻿/*
  * Components barrel export
- * 
- * Components will be exported here in task 1.2:
- * - FormErrorComponent
- * - InputComponent
- * - ConfirmDialogComponent
  */
 
-// Exports will be added in task 1.2
-export {};
+export * from './form-error/form-error.component';
+export * from './input/input.component';
+export * from './confirm-dialog/confirm-dialog.component';

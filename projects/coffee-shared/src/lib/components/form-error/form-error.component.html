@@ -1,0 +1,8 @@
+@if (control().invalid() && control().touched()) {
+  @for (item of control().errors(); track item) {
+    <mat-error>{{ item.message }}</mat-error>
+  }
+  @if (control().pending()) {
+    <mat-label>checking...</mat-label>
+  }
+}
