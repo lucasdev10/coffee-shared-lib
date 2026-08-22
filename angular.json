@@ -6,5 +6,31 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "coffee-shared": {
+      "projectType": "library",
+      "root": "projects/coffee-shared",
+      "sourceRoot": "projects/coffee-shared/src",
+      "prefix": "coffee",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/coffee-shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/coffee-shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/coffee-shared/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }

@@ -1,12 +1,15 @@
-{
+﻿{
   "name": "coffee-shared-lib",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "ng build coffee-shared",
+    "build:watch": "ng build coffee-shared --watch",
+    "test": "ng test coffee-shared",
+    "test:coverage": "ng test coffee-shared --coverage",
+    "test:ci": "ng test coffee-shared --coverage",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "prettier": {
     "printWidth": 100,
@@ -23,18 +26,32 @@
   "private": true,
   "packageManager": "npm@10.9.0",
   "dependencies": {
+    "@angular/cdk": "~21.1.5",
     "@angular/common": "^21.1.0",
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
+    "@angular/material": "~21.1.5",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
+    "@ngrx/effects": "^21.0.1",
+    "@ngrx/store": "^21.0.1",
+    "date-fns": "^4.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular/build": "^21.1.2",
     "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
-    "typescript": "~5.9.2"
+    "@vitest/coverage-v8": "^4.0.18",
+    "angular-eslint": "21.2.0",
+    "jsdom": "^28.1.0",
+    "ng-packagr": "^21.2.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.50.1",
+    "vitest": "^4.0.8"
   }
 }
