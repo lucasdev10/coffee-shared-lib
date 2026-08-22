@@ -1,10 +1,2 @@
-﻿/*
- * Enums barrel export
- * 
- * Enums will be exported here in task 1.5:
- * - OrderStatus
- * - PaymentMethod
- */
-
-// Exports will be added in task 1.5
-export {};
+﻿export { EOrderStatus, OrderStatusLabels, OrderStatusColors } from './order-status.enum';
+export { EPaymentMethod, PaymentMethodLabels, PaymentMethodIcons } from './payment-method.enum';
