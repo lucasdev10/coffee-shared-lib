@@ -6,8 +6,24 @@ import { MatError, MatLabel } from '@angular/material/form-field';
   selector: 'app-form-error',
   standalone: true,
   imports: [MatError, MatLabel],
-  templateUrl: './form-error.component.html',
-  styleUrl: './form-error.component.scss',
+  template: `
+    @if (control().invalid() && control().touched()) {
+      @for (item of control().errors(); track item) {
+        <mat-error>{{ item.message }}</mat-error>
+      }
+      @if (control().pending()) {
+        <mat-label>checking...</mat-label>
+      }
+    }
+  `,
+  styles: [`
+    .error-message {
+      color: var(--mat-sys-error);
+      font-size: 12px;
+      margin-top: 4px;
+      display: block;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormErrorComponent {
